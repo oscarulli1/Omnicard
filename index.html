@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Oscar Ramírez | OmniFlow - Gafete & Tarjeta Digital</title>
+  <meta name="description" content="Gafete digital de contacto instantáneo de Oscar Ramírez, Fundador & Director de OmniFlow. Escanea y guarda directo en tu celular.">
+  <meta name="theme-color" content="#070a12">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background glow lights -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Main Container -->
+  <main class="card-wrapper">
+    <article class="omnicard" id="business-card">
+      
+      <!-- Top Navigation Tabs (Modo Escáner vs Modo Perfil Completo) -->
+      <nav class="view-switcher-bar">
+        <button class="view-tab-btn active" id="tab-gafete" data-target="view-gafete">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM14 14h2v2h-2zM18 14h3v3h-3zM14 18h3v3h-3zM18 18h3v3h-3z"/></svg>
+          <span>Gafete QR Directo</span>
+        </button>
+        <button class="view-tab-btn" id="tab-servicios" data-target="view-servicios">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          <span>Servicios &amp; Pagos</span>
+        </button>
+      </nav>
+
+      <!-- ===================================================================
+           VISTA 1: GAFETE DIGITAL CON QR NATIVO DE CONTACTO (POR DEFECTO)
+           =================================================================== -->
+      <section class="view-section active-view" id="view-gafete">
+        
+        <!-- Header del Gafete -->
+        <header class="gafete-header">
+          <div class="nfc-pulse-tag">
+            <span class="pulse-dot"></span>
+            <span>CONTACTO INSTANTÁNEO</span>
+          </div>
+
+          <div class="gafete-brand">
+            <div class="brand-isotype-mini">
+              <svg viewBox="0 0 100 100" class="omni-svg-mini">
+                <defs>
+                  <linearGradient id="omniGradMini" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00f5d4" />
+                    <stop offset="50%" stop-color="#00b4d8" />
+                    <stop offset="100%" stop-color="#7928ca" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="44" stroke="rgba(0, 245, 212, 0.2)" stroke-width="3" fill="none"/>
+                <path d="M30,50 C30,38 42,38 50,50 C58,62 70,62 70,50 C70,38 58,38 50,50 C42,62 30,62 30,50 Z" 
+                      fill="none" 
+                      stroke="url(#omniGradMini)" 
+                      stroke-width="6" 
+                      stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="gafete-brand-name">OMNIFLOW</span>
+          </div>
+
+          <div class="gafete-user-info">
+            <h1 class="gafete-name">Oscar Ramírez</h1>
+            <p class="gafete-role">Fundador &amp; Director</p>
+            <p class="gafete-city">📍 San Luis Potosí, México</p>
+          </div>
+        </header>
+
+        <!-- EL QR GIGANTE DE CONTACTO DIRECTO -->
+        <div class="gafete-qr-hero">
+          <div class="qr-scan-box">
+            <!-- Esquinas decorativas de escáner cibernético -->
+            <span class="scan-corner sc-tl"></span>
+            <span class="scan-corner sc-tr"></span>
+            <span class="scan-corner sc-bl"></span>
+            <span class="scan-corner sc-br"></span>
+            
+            <!-- Láser de escaneo animado -->
+            <div class="scan-laser-line"></div>
+
+            <div class="qr-image-holder" id="hero-qr-container">
+              <!-- El código QR nativo con la vCard se inyecta por script.js -->
+              <div class="qr-loading-spinner">Cargando código de contacto...</div>
+            </div>
+          </div>
+
+          <div class="qr-instructions">
+            <div class="cam-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <p class="qr-callout">
+              <strong>Apunta la cámara de tu celular</strong><br>
+              <span>Se abrirá la opción de guardarme en tus contactos automáticamente.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Acciones Rápidas del Gafete -->
+        <div class="gafete-actions-group">
+          <!-- Botón de respaldo manual: Descargar vCard -->
+          <button class="gafete-action-btn primary-vcf-btn" id="btn-gafete-vcf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Guardar Contacto en este Celular (.vcf)</span>
+          </button>
+
+          <!-- Guardar imagen del QR para fondo de pantalla / fotos -->
+          <button class="gafete-action-btn secondary-btn" id="btn-download-qr-img">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Descargar Imagen de mi QR (para fotos o fondo)</span>
+          </button>
+
+          <!-- Botón directo a WhatsApp -->
+          <a href="https://wa.me/524448016798?text=Hola%20Oscar%2C%20escane%C3%A9%20tu%20gafete%20de%20Omniflow%20y%20me%20gustar%C3%ADa%20contactarte." 
+             target="_blank" rel="noopener noreferrer" class="gafete-action-btn whatsapp-direct-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.41a8.18 8.18 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.08l-.29-.17-3.02.79.81-2.94-.19-.3a8.18 8.18 0 01-1.26-4.37c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1 1.34-.34 1.47-1.29 1.47-1.57.01-.28-.11-.42-.36-.55z"/></svg>
+            <span>Mandar Mensaje a mi WhatsApp</span>
+          </a>
+        </div>
+
+        <button class="btn-toggle-to-services" id="btn-see-services-link">
+          <span>Ver Servicios de OmniFlow y Datos Bancarios</span>
+          <span class="arrow-down">↓</span>
+        </button>
+      </section>
+
+
+      <!-- ===================================================================
+           VISTA 2: SERVICIOS ESTRELLA, PAGOS & PERFIL DETALLADO
+           =================================================================== -->
+      <section class="view-section" id="view-servicios">
+        
+        <!-- Botones de Comunicación Inmediata -->
+        <div class="quick-actions-grid">
+          <a href="https://wa.me/524448016798?text=Hola%20Oscar%2C%20vi%20tu%20tarjeta%20digital%20de%20Omniflow." 
+             target="_blank" rel="noopener noreferrer" class="action-card whatsapp-card">
+            <div class="action-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.41a8.18 8.18 0 012.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.06-1.08l-.29-.17-3.02.79.81-2.94-.19-.3a8.18 8.18 0 01-1.26-4.37c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8.6.26 1.07.41 1.44.53.61.19 1.16.17 1.6.1 1.34-.34 1.47-1.29 1.47-1.57.01-.28-.11-.42-.36-.55z"/></svg>
+            </div>
+            <span class="action-label">WhatsApp</span>
+            <span class="action-sub">444 801 6798</span>
+          </a>
+
+          <a href="tel:+524448016798" class="action-card call-card">
+            <div class="action-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <span class="action-label">Llamada</span>
+            <span class="action-sub">Marcar directo</span>
+          </a>
+
+          <a href="mailto:oscaruli184@gmail.com?subject=Contacto%20desde%20Gafete%20OmniFlow" class="action-card email-card">
+            <div class="action-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <span class="action-label">Correo</span>
+            <span class="action-sub">oscaruli184@...</span>
+          </a>
+
+          <a href="https://www.facebook.com/omniflowautomatizacion" target="_blank" rel="noopener noreferrer" class="action-card fb-card">
+            <div class="action-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            <span class="action-label">Facebook</span>
+            <span class="action-sub">@omniflow...</span>
+          </a>
+        </div>
+
+        <!-- Servicios Estrella -->
+        <section class="services-section">
+          <div class="section-header">
+            <span class="section-tag">SERVICIOS ESTRELLA</span>
+            <h2 class="section-title">¿Qué desarrollamos en OmniFlow?</h2>
+          </div>
+
+          <div class="services-list">
+            <div class="service-card">
+              <div class="service-icon-box cyan-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+              </div>
+              <div class="service-content">
+                <h3>Bots de WhatsApp Inteligentes</h3>
+                <p>Atención, cotizaciones y ventas automáticas 24/7 sin que pierdas prospectos por tardar en responder.</p>
+              </div>
+            </div>
+
+            <div class="service-card highlight-service">
+              <div class="service-icon-box purple-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              </div>
+              <div class="service-content">
+                <div class="title-with-pill">
+                  <h3>Tarjetas Digitales &amp; NFC</h3>
+                  <span class="mini-pill">Innovación</span>
+                </div>
+                <p>Gafetes QR y tarjetas inteligentes con contacto directo a la libreta del cliente en 1 solo toque.</p>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-box blue-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="service-content">
+                <h3>Desarrollo de Software a la Medida</h3>
+                <p>Sistemas internos, páginas web de alto impacto y plataformas accesibles, rápidas y hechas a la medida.</p>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-box pink-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+              </div>
+              <div class="service-content">
+                <h3>Presencia y Posicionamiento en Redes</h3>
+                <p>Estrategia digital, Reels de alta conversión y branding para que tu negocio proyecte autoridad y confianza local.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Datos de Transferencia (CLABE BBVA) -->
+        <section class="bank-section">
+          <div class="bank-card">
+            <div class="bank-header">
+              <div class="bank-title-group">
+                <span class="bank-pill">PAGOS &amp; ANTICIPOS</span>
+                <h3>Datos de Transferencia</h3>
+              </div>
+              <span class="bank-logo-text">BBVA</span>
+            </div>
+
+            <div class="bank-details-box">
+              <div class="detail-row">
+                <span class="detail-label">Beneficiario:</span>
+                <span class="detail-value">Oscar Ramírez (OmniFlow)</span>
+              </div>
+              <div class="detail-row clabe-row">
+                <span class="detail-label">CLABE Interbancaria:</span>
+                <div class="clabe-number-group">
+                  <code class="clabe-code" id="clabe-text">012 180 01553610497 5</code>
+                  <button class="btn-copy-clabe" id="btn-copy-clabe" title="Copiar CLABE al portapapeles">
+                    <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    <span class="copy-label">Copiar</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Botón Volver al Gafete QR -->
+        <button class="btn-back-to-qr" id="btn-back-to-gafete">
+          <span>← Volver a Mostrar mi Código QR</span>
+        </button>
+
+      </section>
+
+      <!-- Footer Global -->
+      <footer class="card-footer">
+        <p class="footer-brand">
+          <span class="brand-glow">OMNIFLOW</span>
+          <span class="footer-separator">•</span>
+          <span>Desarrollo de Software</span>
+        </p>
+        <p class="footer-copy">San Luis Potosí, México • &copy; 2026 Todos los derechos reservados</p>
+      </footer>
+
+    </article>
+  </main>
+
+  <!-- Notification Toast -->
+  <div class="toast-notification" id="toast-notify" role="alert">
+    <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    <span class="toast-message" id="toast-text">¡Acción realizada con éxito!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
