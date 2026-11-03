@@ -4,13 +4,13 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Contact Profile Data
+  // Contact Profile Data (Optimized for Phone Search & Brand Recognition)
   const profileData = {
     firstName: 'Oscar',
     lastName: 'Ramírez',
-    fullName: 'Oscar Ramírez',
-    company: 'OmniFlow',
-    title: 'Fundador & Director',
+    fullName: 'Oscar Ramírez | OmniFlow Software',
+    company: 'OmniFlow - Desarrollo de Software',
+    title: 'Fundador & Director de Tecnología',
     phone: '+524448016798',
     phoneFormatted: '444 801 6798',
     email: 'oscaruli184@gmail.com',
@@ -19,14 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
     country: 'México',
     clabe: '012180015536104975',
     facebook: 'https://www.facebook.com/omniflowautomatizacion',
-    servicesNote: 'OmniFlow • Software a la medida, Bots de WhatsApp, Presencia en Redes y Tarjetas Digitales.'
+    servicesNote: 'OmniFlow: Desarrollo de Software a la medida, Bots de WhatsApp, Páginas Web, Sistemas, Automatización y Presencia Digital.'
   };
 
   // Raw vCard 3.0 string encoded specifically for mobile camera readers (iOS Camera & Android Google Lens)
   const vcardPayload = [
     'BEGIN:VCARD',
     'VERSION:3.0',
-    `N:${profileData.lastName};${profileData.firstName};;;`,
+    `N:Ramírez;Oscar;;OmniFlow Software;`,
     `FN:${profileData.fullName}`,
     `ORG:${profileData.company}`,
     `TITLE:${profileData.title}`,
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `EMAIL;TYPE=INTERNET,WORK,PREF:${profileData.email}`,
     `URL:${profileData.facebook}`,
     `ADR;TYPE=WORK:;;${profileData.city};${profileData.state};;${profileData.country}`,
-    `NOTE:${profileData.servicesNote}`,
+    `NOTE:${profileData.servicesNote} | San Luis Potosí, México`,
     'END:VCARD'
   ].join('\r\n');
 
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const downloadLink = document.createElement('a');
     downloadLink.href = url;
-    downloadLink.setAttribute('download', `${profileData.firstName}_${profileData.lastName}_OmniFlow.vcf`);
+    downloadLink.setAttribute('download', 'Oscar_Ramirez_OmniFlow_Software.vcf');
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
